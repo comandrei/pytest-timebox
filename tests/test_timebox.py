@@ -6,13 +6,13 @@ def test_bar_fixture(testdir):
 
     # create a temporary pytest test module
     testdir.makepyfile("""
-        def test_sth(bar):
-            assert bar == "europython2015"
+        def test_sth(timebox):
+            assert timebox == 600
     """)
 
     # run pytest with the following cmd args
     result = testdir.runpytest(
-        '--foo=europython2015',
+        '--timebox=600',
         '-v'
     )
 
@@ -32,25 +32,25 @@ def test_help_message(testdir):
     # fnmatch_lines does an assertion internally
     result.stdout.fnmatch_lines([
         'timebox:',
-        '*--foo=DEST_FOO*Set the value for the fixture "bar".',
+        '*--timebox=TIMEBOX*Stop test run after specified time (in seconds)',
     ])
 
 
 def test_hello_ini_setting(testdir):
     testdir.makeini("""
         [pytest]
-        HELLO = world
+        timebox = 300
     """)
 
     testdir.makepyfile("""
         import pytest
 
         @pytest.fixture
-        def hello(request):
-            return request.config.getini('HELLO')
+        def timebox(request):
+            return int(request.config.getini('timebox'))
 
-        def test_hello_world(hello):
-            assert hello == 'world'
+        def test_hello_world(timebox):
+            assert timebox == 300
     """)
 
     result = testdir.runpytest('-v')

@@ -9,10 +9,10 @@ def pytest_addoption(parser):
     group.addoption(
         '--timebox',
         action='store',
+        type='int',
         dest='timebox',
         help=description
     )
-
     parser.addini('timebox', description)
 
 
