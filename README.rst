@@ -11,21 +11,12 @@ pytest-timebox
 
 py.test plugin to timebox your test suite
 
-----
-
-This `Pytest`_ plugin was generated with `Cookiecutter`_ along with `@hackebrot`_'s `Cookiecutter-pytest-plugin`_ template.
-
 
 Features
 --------
 
-* TODO
-
-
-Requirements
-------------
-
-* TODO
+The intent of this plugin is to help enforce time budgets for time-sensitive test suites (like a smoke test for your application).
+You can set a timebox in which your tests must run. If the limit is exceeded, the test session will fail.
 
 
 Installation
@@ -39,7 +30,7 @@ You can install "pytest-timebox" via `pip`_ from `PyPI`_::
 Usage
 -----
 
-* TODO
+* py.test --timebox 300 # tests must run in under 5 minutes
 
 Contributing
 ------------
