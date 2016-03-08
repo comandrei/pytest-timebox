@@ -4,18 +4,18 @@ import pytest
 
 
 def pytest_addoption(parser):
+    description = 'Stop test run after specified time (in seconds)'
     group = parser.getgroup('timebox')
     group.addoption(
-        '--foo',
+        '--timebox',
         action='store',
-        dest='dest_foo',
-        default=2015,
-        help='Set the value for the fixture "bar".'
+        dest='timebox',
+        help=description
     )
 
-    parser.addini('HELLO', 'Dummy pytest.ini setting')
+    parser.addini('timebox', description)
 
 
 @pytest.fixture
-def bar(request):
-    return request.config.option.dest_foo
+def timebox(request):
+    return request.config.option.timebox
