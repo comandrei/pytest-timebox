@@ -1,0 +1,6 @@
+site_name: pytest-timebox
+site_description: py.test plugin to timebox your test suite
+
+theme: readthedocs
+
+repo_url: https://github.com/comandrei/pytest-timebox
