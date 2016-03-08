@@ -29,8 +29,8 @@ You can install "pytest-timebox" via `pip`_ from `PyPI`_::
 
 Usage
 -----
-
-* py.test --timebox 300 # tests must run in under 5 minutes
+::
+    $ py.test --timebox 300 # tests must run in under 5 minutes
 
 Contributing
 ------------
